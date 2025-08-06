@@ -12,8 +12,14 @@ class SideDrawer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Drawer(
       backgroundColor: AppColors.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.zero,
+          bottomRight: Radius.zero,
+        ),
+      ),
       child: SafeArea(
-        bottom: false,
+        bottom: true,
         child: Column(
           children: [
             _buildDrawerHeader(context),
