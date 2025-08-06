@@ -13,6 +13,7 @@ class SettingsPage extends StatelessWidget {
         title: const Text('Settings'),
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
+        automaticallyImplyLeading: true,
       ),
       body: const SettingsContent(),
     );

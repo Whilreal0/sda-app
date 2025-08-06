@@ -67,6 +67,10 @@ class CustomBottomNavigationBar extends ConsumerWidget {
         return const Icon(Icons.event_outlined);
       case 'event':
         return const Icon(Icons.event);
+      case 'article_outlined':
+        return const Icon(Icons.article_outlined);
+      case 'article':
+        return const Icon(Icons.article);
       case 'campaign_outlined':
         return const Icon(Icons.campaign_outlined);
       case 'campaign':

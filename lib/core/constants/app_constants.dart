@@ -43,15 +43,15 @@ class NavigationConstants {
     ),
     NavigationTabInfo(
       index: 2,
-      label: 'Donations',
-      icon: 'volunteer_activism_outlined',
-      activeIcon: 'volunteer_activism',
+      label: 'News',
+      icon: 'article_outlined',
+      activeIcon: 'article',
     ),
     NavigationTabInfo(
       index: 3,
-      label: 'Settings',
-      icon: 'settings_outlined',
-      activeIcon: 'settings',
+      label: 'Events',
+      icon: 'event_outlined',
+      activeIcon: 'event',
     ),
   ];
 }

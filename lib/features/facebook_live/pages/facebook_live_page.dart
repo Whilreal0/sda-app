@@ -34,6 +34,7 @@ class FacebookVideoView extends StatelessWidget {
         title: const Text('Live Stream'),
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
+        automaticallyImplyLeading: true,
       ),
       body: Center(
         child: Column(

@@ -13,6 +13,7 @@ class EventsPage extends StatelessWidget {
         title: const Text('Events'),
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
+        automaticallyImplyLeading: true,
       ),
       body: SafeArea(
         bottom: true,

@@ -13,6 +13,7 @@ class AnnouncementsPage extends StatelessWidget {
         title: const Text('News & Announcements'),
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
+        automaticallyImplyLeading: true,
       ),
       body: SafeArea(
         bottom: true,
