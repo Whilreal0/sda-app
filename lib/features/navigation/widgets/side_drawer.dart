@@ -25,42 +25,68 @@ class SideDrawer extends ConsumerWidget {
   Widget _buildDrawerHeader(BuildContext context) {
     return DrawerHeader(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
             Theme.of(context).colorScheme.primary,
+            Theme.of(context).colorScheme.primary.withValues(alpha: 0.9),
             Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
           ],
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: 30,
-            surfaceColor: Theme.of(context).colorScheme.surface,
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.1),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
             child: Icon(
               Icons.church,
-              size: 35,
+              size: 32,
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          const SizedBox(height: AppConstants.smallPadding),
+          const SizedBox(height: 16),
           Text(
             AppConstants.appName,
             style: TextStyle(
               color: Theme.of(context).colorScheme.surface,
               fontSize: AppConstants.headlineTextSize,
               fontWeight: FontWeight.bold,
+              shadows: [
+                Shadow(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  offset: const Offset(0, 1),
+                  blurRadius: 2,
+                ),
+              ],
             ),
           ),
+          const SizedBox(height: 4),
           Text(
             'Version ${AppConstants.appVersion}',
             style: TextStyle(
-              color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.8),
+              color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.9),
               fontSize: AppConstants.captionTextSize,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -91,7 +117,19 @@ class SideDrawer extends ConsumerWidget {
             NavigationService.navigateToSettings(context);
           },
         ),
-        const Divider(),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          height: 1,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.transparent,
+                Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
+                Colors.transparent,
+              ],
+            ),
+          ),
+        ),
         _buildDrawerItem(
           context,
           icon: Icons.info_outline,
@@ -123,19 +161,38 @@ class SideDrawer extends ConsumerWidget {
     required String title,
     required VoidCallback onTap,
   }) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        color: Theme.of(context).colorScheme.onSurface,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.transparent,
       ),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.onSurface,
-          fontSize: AppConstants.bodyTextSize,
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primaryContainer,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            icon,
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            size: 20,
+          ),
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
+            fontSize: AppConstants.bodyTextSize,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        onTap: onTap,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
         ),
       ),
-      onTap: onTap,
     );
   }
 

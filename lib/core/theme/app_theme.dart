@@ -26,14 +26,14 @@ class AppTheme {
       ),
 
       // Scaffold Background
-      scaffoldBackgroundColor: AppColors.surface,
+      scaffoldBackgroundColor: AppColors.background,
 
       // AppBar Theme
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         elevation: 0,
         scrolledUnderElevation: 2,
-        surfaceColor: AppColors.secondary,
+        backgroundColor: AppColors.secondary,
         foregroundColor: AppColors.textPrimary,
         titleTextStyle: TextStyle(
           color: AppColors.textPrimary,
@@ -49,7 +49,7 @@ class AppTheme {
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         elevation: 8,
-        surfaceColor: AppColors.surface,
+        backgroundColor: AppColors.surface,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.textSecondary,
         selectedLabelStyle: TextStyle(
@@ -77,7 +77,7 @@ class AppTheme {
       // Button Themes
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          surfaceColor: AppColors.secondary,
+          backgroundColor: AppColors.secondary,
           foregroundColor: AppColors.textPrimary,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
@@ -119,7 +119,7 @@ class AppTheme {
 
       // Floating Action Button Theme
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        surfaceColor: AppColors.primary,
+        backgroundColor: AppColors.primary,
         foregroundColor: AppColors.textPrimary,
         elevation: 4,
       ),
