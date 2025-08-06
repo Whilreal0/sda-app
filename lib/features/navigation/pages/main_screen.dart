@@ -8,6 +8,7 @@ import '../../events/widgets/events_content.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
 import '../widgets/side_drawer.dart';
 import '../../../core/constants/app_constants.dart';
+import '../../../core/constants/app_colors.dart';
 
 /// Main screen that manages navigation between different pages
 class MainScreen extends ConsumerWidget {
@@ -34,23 +35,33 @@ class MainScreen extends ConsumerWidget {
     ];
 
     return Scaffold(
+      backgroundColor: AppColors.background,
       drawer: const SideDrawer(),
       appBar: AppBar(
-        title: Text(pageTitles[selectedIndex]),
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: Text(
+          pageTitles[selectedIndex],
+          style: TextStyle(
+            color: AppColors.textPrimary,
+            fontSize: AppConstants.headlineTextSize,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        backgroundColor: AppColors.surface,
         elevation: 0,
         automaticallyImplyLeading: true,
         centerTitle: false,
-        titleTextStyle: TextStyle(
-          color: Theme.of(context).colorScheme.onSurface,
-          fontSize: AppConstants.headlineTextSize,
-          fontWeight: FontWeight.w600,
-        ),
         iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.onSurface,
+          color: AppColors.primary,
           size: 24,
         ),
         toolbarHeight: 64,
+        surfaceTintColor: Colors.transparent,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
       ),
       body: IndexedStack(
         index: selectedIndex,

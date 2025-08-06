@@ -27,7 +27,7 @@ class SplashNotifier extends _$SplashNotifier {
 
 /// Provider to check if splash is completed
 @riverpod
-bool isSplashCompleted(IsSplashCompletedRef ref) {
+bool isSplashCompleted(Ref ref) {
   final splashState = ref.watch(splashNotifierProvider);
   return splashState == SplashState.completed;
 }

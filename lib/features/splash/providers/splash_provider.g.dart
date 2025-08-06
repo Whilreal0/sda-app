@@ -6,7 +6,7 @@ part of 'splash_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$isSplashCompletedHash() => r'6161dc2659dbc25bae9fbba102777e837f4fba8a';
+String _$isSplashCompletedHash() => r'5a74a3eafd7955900b1b15d52f42361d1bea1ce9';
 
 /// Provider to check if splash is completed
 ///

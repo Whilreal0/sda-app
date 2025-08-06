@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../features/settings/pages/settings_page.dart';
-import '../../features/donations/pages/donations_page.dart';
+import '../constants/app_colors.dart';
+import '../../features/settings/widgets/settings_content.dart';
+import '../../features/donations/widgets/donations_content.dart';
 
 /// Navigation service for handling drawer navigation
 class NavigationService {
@@ -13,7 +14,25 @@ class NavigationService {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const SettingsPage(),
+        builder: (context) => Scaffold(
+          backgroundColor: AppColors.background,
+          appBar: AppBar(
+            title: const Text('Settings'),
+            backgroundColor: AppColors.surface,
+            elevation: 0,
+            automaticallyImplyLeading: true,
+            iconTheme: const IconThemeData(
+              color: AppColors.primary,
+              size: 24,
+            ),
+            titleTextStyle: const TextStyle(
+              color: AppColors.textPrimary,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          body: const SettingsContent(),
+        ),
       ),
     );
   }
@@ -23,7 +42,25 @@ class NavigationService {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const DonationsPage(),
+        builder: (context) => Scaffold(
+          backgroundColor: AppColors.background,
+          appBar: AppBar(
+            title: const Text('Donations'),
+            backgroundColor: AppColors.surface,
+            elevation: 0,
+            automaticallyImplyLeading: true,
+            iconTheme: const IconThemeData(
+              color: AppColors.primary,
+              size: 24,
+            ),
+            titleTextStyle: const TextStyle(
+              color: AppColors.textPrimary,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          body: const DonationsContent(),
+        ),
       ),
     );
   }

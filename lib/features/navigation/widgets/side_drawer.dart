@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/constants/app_constants.dart';
+import '../../../core/constants/app_colors.dart';
 import '../../../core/services/navigation_service.dart';
 
 /// Side drawer widget for navigation
@@ -10,13 +11,18 @@ class SideDrawer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Drawer(
-      child: Column(
-        children: [
-          _buildDrawerHeader(context),
-          Expanded(
-            child: _buildDrawerItems(context),
-          ),
-        ],
+      backgroundColor: AppColors.surface,
+      child: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            _buildDrawerHeader(context),
+            Expanded(
+              child: _buildDrawerItems(context),
+            ),
+            _buildDrawerFooter(context),
+          ],
+        ),
       ),
     );
   }
@@ -25,51 +31,30 @@ class SideDrawer extends ConsumerWidget {
   Widget _buildDrawerHeader(BuildContext context) {
     return DrawerHeader(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Theme.of(context).colorScheme.primary,
-            Theme.of(context).colorScheme.primary.withValues(alpha: 0.9),
-            Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
-          ],
-        ),
+        gradient: AppColors.primaryGradient,
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Icon(
-              Icons.church,
-              size: 32,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+          Icon(
+            Icons.church,
+            size: 48,
+            color: AppColors.surface,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           Text(
-            AppConstants.appName,
+            'SDA App',
             style: TextStyle(
-              color: Theme.of(context).colorScheme.surface,
-              fontSize: AppConstants.headlineTextSize,
+              color: AppColors.surface,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
               shadows: [
                 Shadow(
@@ -78,15 +63,6 @@ class SideDrawer extends ConsumerWidget {
                   blurRadius: 2,
                 ),
               ],
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Version ${AppConstants.appVersion}',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.9),
-              fontSize: AppConstants.captionTextSize,
-              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -124,7 +100,7 @@ class SideDrawer extends ConsumerWidget {
             gradient: LinearGradient(
               colors: [
                 Colors.transparent,
-                Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
+                AppColors.borderLight,
                 Colors.transparent,
               ],
             ),
@@ -163,35 +139,28 @@ class SideDrawer extends ConsumerWidget {
   }) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Colors.transparent,
-      ),
       child: ListTile(
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primaryContainer,
+            color: AppColors.primary.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(
             icon,
-            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            color: AppColors.primary,
             size: 20,
           ),
         ),
         title: Text(
           title,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
+            color: AppColors.textPrimary,
             fontSize: AppConstants.bodyTextSize,
             fontWeight: FontWeight.w500,
           ),
         ),
         onTap: onTap,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
       ),
     );
   }
@@ -205,11 +174,15 @@ class SideDrawer extends ConsumerWidget {
       applicationIcon: Icon(
         Icons.church,
         size: 50,
-        color: Theme.of(context).colorScheme.primary,
+        color: AppColors.primary,
       ),
       children: [
         const Text(
           'A comprehensive app for the Seventh-day Adventist community, providing access to services, events, and spiritual resources.',
+          style: TextStyle(
+            color: AppColors.textSecondary,
+            fontSize: 14,
+          ),
         ),
       ],
     );
@@ -220,25 +193,126 @@ class SideDrawer extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Help & Support'),
-        content: const Column(
+        backgroundColor: AppColors.surface,
+        title: Text(
+          'Help & Support',
+          style: TextStyle(
+            color: AppColors.textPrimary,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Need help? Here are some options:'),
-            SizedBox(height: 16),
-            Text('• Contact your local church office'),
-            Text('• Email support: support@sda-app.com'),
-            Text('• Call: 1-800-SDA-HELP'),
+            Text(
+              'Need help? Here are some options:',
+              style: TextStyle(
+                color: AppColors.textSecondary,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 16),
+            _HelpOption(
+              icon: Icons.phone,
+              text: 'Contact your local church office',
+            ),
+            const SizedBox(height: 8),
+            _HelpOption(
+              icon: Icons.email,
+              text: 'Email support: support@sda-app.com',
+            ),
+            const SizedBox(height: 8),
+            _HelpOption(
+              icon: Icons.phone_in_talk,
+              text: 'Call: 1-800-SDA-HELP',
+            ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
+            child: Text(
+              'Close',
+              style: TextStyle(
+                color: AppColors.primary,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
         ],
       ),
+    );
+  }
+
+  /// Build the drawer footer with app title
+  Widget _buildDrawerFooter(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.primary.withValues(alpha: 0.05),
+        border: Border(
+          top: BorderSide(
+            color: AppColors.borderLight,
+            width: 1,
+          ),
+        ),
+      ),
+      child: Column(
+        children: [
+          Text(
+            'SDA App',
+            style: TextStyle(
+              color: AppColors.primary,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Seventh-day Adventist Community',
+            style: TextStyle(
+              color: AppColors.textSecondary,
+              fontSize: 12,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Help option widget
+class _HelpOption extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const _HelpOption({
+    required this.icon,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(
+          icon,
+          size: 16,
+          color: AppColors.primary,
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: AppColors.textSecondary,
+              fontSize: 14,
+            ),
+          ),
+        ),
+      ],
     );
   }
 } 

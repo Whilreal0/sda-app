@@ -11,7 +11,7 @@ class BibleDetailedPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bible Study'),
-        surfaceColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
       ),
       body: const SafeArea(

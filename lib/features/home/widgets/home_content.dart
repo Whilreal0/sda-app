@@ -182,7 +182,7 @@ class _LiveVideoSection extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withOpacity(0.7),
+                          Colors.black.withValues(alpha: 0.7),
                         ],
                       ),
                     ),
@@ -216,7 +216,7 @@ class _LiveVideoSection extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.error.withOpacity(0.3),
+                                color: AppColors.error.withValues(alpha: 0.3),
                                 blurRadius: 4,
                                 offset: const Offset(0, 2),
                               ),
@@ -280,42 +280,45 @@ class _PrayerBibleSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        Row(
-          children: [
-            Expanded(
-              child: _SpiritualCard(
-                icon: Icons.favorite,
-                title: 'Prayer Requests',
-                subtitle: 'Share and pray for others',
-                color: AppColors.primary,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PrayerDetailedPage(),
-                    ),
-                  );
-                },
+        SizedBox(
+          height: 100,
+          child: Row(
+            children: [
+              Expanded(
+                child: _SpiritualCard(
+                  icon: Icons.favorite,
+                  title: 'Prayer Requests',
+                  subtitle: 'Share and pray for others',
+                  color: AppColors.primary,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PrayerDetailedPage(),
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _SpiritualCard(
-                icon: Icons.menu_book,
-                title: 'Bible Study',
-                subtitle: 'Daily readings and resources',
-                color: AppColors.secondary,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const BibleDetailedPage(),
-                    ),
-                  );
-                },
+              const SizedBox(width: 12),
+              Expanded(
+                child: _SpiritualCard(
+                  icon: Icons.menu_book,
+                  title: 'Bible Study',
+                  subtitle: 'Daily readings and resources',
+                  color: AppColors.secondary,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BibleDetailedPage(),
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
@@ -553,17 +556,17 @@ class _SpiritualCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         constraints: const BoxConstraints(
-          minHeight: 90,
-          maxHeight: 110,
+          minHeight: 80,
+          maxHeight: 100,
         ),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.1),
+          color: color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: color.withOpacity(0.3)),
+          border: Border.all(color: color.withValues(alpha: 0.3)),
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.1),
+              color: color.withValues(alpha: 0.1),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -576,16 +579,16 @@ class _SpiritualCard extends StatelessWidget {
             Icon(
               icon,
               color: color,
-              size: 24,
+              size: 20,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
             Flexible(
               child: Text(
                 title,
                 style: TextStyle(
                   color: color,
                   fontWeight: FontWeight.bold,
-                  fontSize: 13,
+                  fontSize: 12,
                 ),
                 textAlign: TextAlign.center,
                 maxLines: 1,
@@ -597,8 +600,8 @@ class _SpiritualCard extends StatelessWidget {
               child: Text(
                 subtitle,
                 style: TextStyle(
-                  color: color.withOpacity(0.7),
-                  fontSize: 10,
+                  color: color.withValues(alpha: 0.7),
+                  fontSize: 9,
                 ),
                 textAlign: TextAlign.center,
                 maxLines: 1,
