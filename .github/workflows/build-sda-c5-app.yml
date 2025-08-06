@@ -35,14 +35,11 @@ jobs:
     - name: Build AAB
       run: flutter build appbundle --release
       
-    - name: Build APK for arm64-v8a
-      run: flutter build apk --release --target-platform android-arm64
+    - name: Build APK (all architectures)
+      run: flutter build apk --release
       
-    - name: Build APK for armeabi-v7a
-      run: flutter build apk --release --target-platform android-arm
-      
-    - name: Build APK for x86_64
-      run: flutter build apk --release --target-platform android-x64
+    - name: List build outputs
+      run: find build/app/outputs -name "*.apk" -o -name "*.aab"
       
     - name: Upload AAB
       uses: actions/upload-artifact@v4
@@ -55,18 +52,21 @@ jobs:
       with:
         name: sda-c5-community-app-arm64
         path: build/app/outputs/flutter-apk/app-arm64-release.apk
+        if-no-files-found: warn
         
     - name: Upload APK arm32
       uses: actions/upload-artifact@v4
       with:
         name: sda-c5-community-app-arm32
         path: build/app/outputs/flutter-apk/app-arm-release.apk
+        if-no-files-found: warn
         
     - name: Upload APK x86_64
       uses: actions/upload-artifact@v4
       with:
         name: sda-c5-community-app-x86_64
         path: build/app/outputs/flutter-apk/app-x64-release.apk
+        if-no-files-found: warn
         
     - name: Create Release
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -74,9 +74,6 @@ jobs:
       with:
         files: |
           build/app/outputs/bundle/release/app-release.aab
-          build/app/outputs/flutter-apk/app-arm64-release.apk
-          build/app/outputs/flutter-apk/app-arm-release.apk
-          build/app/outputs/flutter-apk/app-x64-release.apk
         tag_name: v${{ github.run_number }}
         name: SDA C-5 Community App v${{ github.run_number }}
         body: |
@@ -88,9 +85,6 @@ jobs:
           
           ### Downloads
           - **AAB Bundle**: For Google Play Store upload
-          - **APK arm64**: For modern Android devices (64-bit ARM)
-          - **APK arm32**: For older Android devices (32-bit ARM)
-          - **APK x86_64**: For Android emulators and Intel devices
           
           ### Features
           - Daily Bible readings
