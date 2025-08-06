@@ -35,8 +35,8 @@ jobs:
     - name: Build AAB
       run: flutter build appbundle --release
       
-    - name: Build APK (all architectures)
-      run: flutter build apk --release
+    - name: Build APK with split per ABI
+      run: flutter build apk --release --split-per-abi
       
     - name: List build outputs
       run: find build/app/outputs -name "*.apk" -o -name "*.aab"
@@ -51,21 +51,21 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: sda-c5-community-app-arm64
-        path: build/app/outputs/flutter-apk/app-arm64-release.apk
+        path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
         if-no-files-found: warn
         
     - name: Upload APK arm32
       uses: actions/upload-artifact@v4
       with:
         name: sda-c5-community-app-arm32
-        path: build/app/outputs/flutter-apk/app-arm-release.apk
+        path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
         if-no-files-found: warn
         
     - name: Upload APK x86_64
       uses: actions/upload-artifact@v4
       with:
         name: sda-c5-community-app-x86_64
-        path: build/app/outputs/flutter-apk/app-x64-release.apk
+        path: build/app/outputs/flutter-apk/app-x86_64-release.apk
         if-no-files-found: warn
         
     - name: Create Release
@@ -74,6 +74,9 @@ jobs:
       with:
         files: |
           build/app/outputs/bundle/release/app-release.aab
+          build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+          build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+          build/app/outputs/flutter-apk/app-x86_64-release.apk
         tag_name: v${{ github.run_number }}
         name: SDA C-5 Community App v${{ github.run_number }}
         body: |
@@ -85,6 +88,9 @@ jobs:
           
           ### Downloads
           - **AAB Bundle**: For Google Play Store upload
+          - **APK arm64-v8a**: For modern Android devices (64-bit ARM)
+          - **APK armeabi-v7a**: For older Android devices (32-bit ARM)
+          - **APK x86_64**: For Android emulators and Intel devices
           
           ### Features
           - Daily Bible readings
