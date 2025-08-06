@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SDA App custom launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color matching SDA theme -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FBBF24"
+                android:endColor="#1E3A8A"
+                android:angle="270" />
+        </shape>
+    </item>
+</layer-list>

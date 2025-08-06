@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      riverpod_generator:
+        options:
+          # The name of the function to use to create the provider
+          provider_name: "provider"
+          # The name of the function to use to create the family provider
+          provider_family_name: "family"
