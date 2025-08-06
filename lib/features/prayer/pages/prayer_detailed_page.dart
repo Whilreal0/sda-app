@@ -11,12 +11,12 @@ class PrayerDetailedPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Prayer Requests'),
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        surfaceColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         bottom: true,
-        child: const PrayerContent(),
+        child: PrayerContent(),
       ),
     );
   }

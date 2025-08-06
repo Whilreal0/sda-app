@@ -11,12 +11,12 @@ class BibleDetailedPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bible Study'),
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        surfaceColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         bottom: true,
-        child: const BibleContent(),
+        child: BibleContent(),
       ),
     );
   }

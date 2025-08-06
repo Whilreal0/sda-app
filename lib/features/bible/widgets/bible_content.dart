@@ -45,23 +45,23 @@ class BibleContent extends ConsumerWidget {
       decoration: BoxDecoration(
         gradient: AppColors.secondaryGradient,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 10,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
-      child: Column(
+      child: const Column(
         children: [
-          const Icon(
+          Icon(
             Icons.menu_book,
             size: 48,
             color: AppColors.surface,
           ),
-          const SizedBox(height: 12),
-          const Text(
+          SizedBox(height: 12),
+          Text(
             'Bible Study',
             style: TextStyle(
               fontSize: 24,
@@ -70,8 +70,8 @@ class BibleContent extends ConsumerWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: 8),
+          Text(
             'Grow in your faith through daily reading and study',
             style: TextStyle(
               fontSize: 16,
@@ -162,11 +162,11 @@ class BibleContent extends ConsumerWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.borderLight),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 8,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -181,14 +181,14 @@ class BibleContent extends ConsumerWidget {
                   color: AppColors.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.calendar_today,
                   color: AppColors.primary,
                   size: 20,
                 ),
               ),
               const SizedBox(width: 12),
-              Expanded(
+              const Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -216,7 +216,7 @@ class BibleContent extends ConsumerWidget {
                   color: AppColors.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Text(
+                child: const Text(
                   'KJV',
                   style: TextStyle(
                     fontSize: 10,
@@ -241,7 +241,7 @@ class BibleContent extends ConsumerWidget {
               children: [
                 Text(
                   verse.reference,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                     color: AppColors.primary,
@@ -250,7 +250,7 @@ class BibleContent extends ConsumerWidget {
                 const SizedBox(height: 12),
                 Text(
                   verse.text.trim(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: AppColors.textPrimary,
                     height: 1.6,
@@ -303,11 +303,11 @@ class BibleContent extends ConsumerWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.borderLight),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 8,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -332,23 +332,23 @@ class BibleContent extends ConsumerWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.error),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 8,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
       child: Column(
         children: [
-          Icon(
+          const Icon(
             Icons.error_outline,
             color: AppColors.error,
             size: 48,
           ),
           const SizedBox(height: 16),
-          Text(
+          const Text(
             'Unable to load today\'s verse',
             style: TextStyle(
               fontWeight: FontWeight.w600,
@@ -359,7 +359,7 @@ class BibleContent extends ConsumerWidget {
           Text(
             errorMessage,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               color: AppColors.textSecondary,
             ),
@@ -530,11 +530,11 @@ class _StudyMaterialCard extends StatelessWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: AppColors.borderLight),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -562,7 +562,7 @@ class _StudyMaterialCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         material.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
                           color: AppColors.textPrimary,
@@ -590,7 +590,7 @@ class _StudyMaterialCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   material.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                     color: AppColors.textSecondary,
                   ),
@@ -598,7 +598,7 @@ class _StudyMaterialCard extends StatelessWidget {
               ],
             ),
           ),
-          Icon(
+          const Icon(
             Icons.arrow_forward_ios,
             color: AppColors.textSecondary,
             size: 16,
@@ -626,11 +626,11 @@ class _SermonCard extends StatelessWidget {
           color: sermon.isRecent ? AppColors.primary : AppColors.borderLight,
           width: sermon.isRecent ? 2 : 1,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -639,7 +639,7 @@ class _SermonCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.play_circle_outline,
                 color: AppColors.primary,
                 size: 20,
@@ -648,7 +648,7 @@ class _SermonCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   sermon.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                     color: AppColors.textPrimary,
@@ -676,7 +676,7 @@ class _SermonCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             sermon.preacher,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               color: AppColors.textSecondary,
             ),
@@ -686,7 +686,7 @@ class _SermonCard extends StatelessWidget {
             children: [
               Text(
                 _formatDate(sermon.date),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.textSecondary,
                 ),
@@ -694,7 +694,7 @@ class _SermonCard extends StatelessWidget {
               const SizedBox(width: 16),
               Text(
                 sermon.duration,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.textSecondary,
                 ),

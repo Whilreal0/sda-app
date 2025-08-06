@@ -29,10 +29,10 @@ class FacebookVideoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      surfaceColor: AppColors.surface,
       appBar: AppBar(
         title: const Text('Live Stream'),
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        surfaceColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
         automaticallyImplyLeading: true,
       ),
@@ -40,7 +40,7 @@ class FacebookVideoView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.live_tv,
               size: 80,
               color: AppColors.primary,
@@ -67,7 +67,7 @@ class FacebookVideoView extends StatelessWidget {
               icon: const Icon(Icons.facebook),
               label: const Text('Go to Facebook'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                surfaceColor: AppColors.primary,
                 foregroundColor: AppColors.surface,
                 padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
               ),

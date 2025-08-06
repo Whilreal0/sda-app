@@ -168,7 +168,7 @@ class _EventCard extends StatelessWidget {
                     return Container(
                       height: 160,
                       width: double.infinity,
-                      color: Theme.of(context).colorScheme.surfaceVariant,
+                      color: Theme.of(context).colorScheme.surfaceContainerHighest,
                       child: Icon(
                         Icons.event,
                         size: 48,

@@ -11,11 +11,11 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(AppConstants.defaultPadding),
+    return const SingleChildScrollView(
+      padding: EdgeInsets.all(AppConstants.defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           // Welcome Section
           _WelcomeSection(),
           SizedBox(height: 24),
@@ -103,7 +103,7 @@ class _LiveVideoSection extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(
+            const Icon(
               Icons.live_tv,
               color: AppColors.error,
               size: 20,
@@ -140,7 +140,7 @@ class _LiveVideoSection extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: double.infinity,
-                  color: AppColors.background,
+                  color: AppColors.surface,
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -472,7 +472,7 @@ class _EventCard extends StatelessWidget {
               color: isToday ? AppColors.primary : AppColors.secondary,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.event,
               color: AppColors.surface,
               size: 20,

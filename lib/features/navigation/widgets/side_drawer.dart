@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/navigation_service.dart';
 
@@ -41,7 +40,7 @@ class SideDrawer extends ConsumerWidget {
         children: [
           CircleAvatar(
             radius: 30,
-            backgroundColor: Theme.of(context).colorScheme.surface,
+            surfaceColor: Theme.of(context).colorScheme.surface,
             child: Icon(
               Icons.church,
               size: 35,

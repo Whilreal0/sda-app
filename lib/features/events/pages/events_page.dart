@@ -8,16 +8,16 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      surfaceColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: const Text('Events'),
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        surfaceColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
         automaticallyImplyLeading: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         bottom: true,
-        child: const EventsContent(),
+        child: EventsContent(),
       ),
     );
   }

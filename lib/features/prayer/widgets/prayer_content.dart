@@ -35,23 +35,23 @@ class PrayerContent extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: AppColors.primaryGradient,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 10,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
-      child: Column(
+      child: const Column(
         children: [
-          const Icon(
+          Icon(
             Icons.favorite,
             size: 48,
             color: AppColors.surface,
           ),
-          const SizedBox(height: 12),
-          const Text(
+          SizedBox(height: 12),
+          Text(
             'Prayer Requests',
             style: TextStyle(
               fontSize: 24,
@@ -60,8 +60,8 @@ class PrayerContent extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: 8),
+          Text(
             'Share your prayer requests and pray for others in our community',
             style: TextStyle(
               fontSize: 16,
@@ -91,11 +91,11 @@ class PrayerContent extends StatelessWidget {
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppColors.borderLight),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: AppColors.shadowLight,
                 blurRadius: 4,
-                offset: const Offset(0, 2),
+                offset: Offset(0, 2),
               ),
             ],
           ),
@@ -272,11 +272,11 @@ class _PrayerCard extends StatelessWidget {
           color: prayer.isAnswered ? AppColors.success : AppColors.borderLight,
           width: prayer.isAnswered ? 2 : 1,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -294,7 +294,7 @@ class _PrayerCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   prayer.author,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
                     color: AppColors.textPrimary,
@@ -322,7 +322,7 @@ class _PrayerCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             prayer.request,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               color: AppColors.textPrimary,
             ),
@@ -332,7 +332,7 @@ class _PrayerCard extends StatelessWidget {
             children: [
               Text(
                 _formatDate(prayer.date),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.textSecondary,
                 ),
@@ -340,7 +340,7 @@ class _PrayerCard extends StatelessWidget {
               const Spacer(),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.favorite,
                     size: 16,
                     color: AppColors.error,
@@ -348,7 +348,7 @@ class _PrayerCard extends StatelessWidget {
                   const SizedBox(width: 4),
                   Text(
                     '${prayer.prayerCount} praying',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       color: AppColors.textSecondary,
                     ),

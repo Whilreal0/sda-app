@@ -16,7 +16,7 @@ class AppTheme {
         primary: AppColors.secondary,
         secondary: AppColors.primary,
         surface: AppColors.surface,
-        surfaceContainerLowest: AppColors.background,
+        surfaceContainerLowest: AppColors.surface,
         error: AppColors.error,
         onPrimary: AppColors.textPrimary,
         onSecondary: Colors.white,
@@ -26,14 +26,14 @@ class AppTheme {
       ),
 
       // Scaffold Background
-      scaffoldBackgroundColor: AppColors.background,
+      scaffoldBackgroundColor: AppColors.surface,
 
       // AppBar Theme
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         elevation: 0,
         scrolledUnderElevation: 2,
-        backgroundColor: AppColors.secondary,
+        surfaceColor: AppColors.secondary,
         foregroundColor: AppColors.textPrimary,
         titleTextStyle: TextStyle(
           color: AppColors.textPrimary,
@@ -49,7 +49,7 @@ class AppTheme {
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         elevation: 8,
-        backgroundColor: AppColors.surface,
+        surfaceColor: AppColors.surface,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.textSecondary,
         selectedLabelStyle: TextStyle(
@@ -77,7 +77,7 @@ class AppTheme {
       // Button Themes
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.secondary,
+          surfaceColor: AppColors.secondary,
           foregroundColor: AppColors.textPrimary,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
@@ -119,7 +119,7 @@ class AppTheme {
 
       // Floating Action Button Theme
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: AppColors.primary,
+        surfaceColor: AppColors.primary,
         foregroundColor: AppColors.textPrimary,
         elevation: 4,
       ),

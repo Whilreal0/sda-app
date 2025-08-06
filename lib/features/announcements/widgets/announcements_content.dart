@@ -43,7 +43,7 @@ class AnnouncementsContent extends StatelessWidget {
   Widget _buildSearchBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
@@ -378,7 +378,7 @@ class _FilterChip extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected 
             ? Theme.of(context).colorScheme.primary
-            : Theme.of(context).colorScheme.surfaceVariant,
+            : Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: isSelected 
@@ -459,7 +459,7 @@ class _AnnouncementCard extends StatelessWidget {
                     return Container(
                       height: 120,
                       width: double.infinity,
-                      color: Theme.of(context).colorScheme.surfaceVariant,
+                      color: Theme.of(context).colorScheme.surfaceContainerHighest,
                       child: Icon(
                         Icons.article,
                         size: 48,
@@ -481,7 +481,7 @@ class _AnnouncementCard extends StatelessWidget {
                   ),
                   child: Text(
                     announcement.priority,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 10,
                       fontWeight: FontWeight.bold,
@@ -500,7 +500,7 @@ class _AnnouncementCard extends StatelessWidget {
                       color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.push_pin,
                       size: 16,
                       color: Colors.white,
@@ -518,7 +518,7 @@ class _AnnouncementCard extends StatelessWidget {
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.notifications_active,
                       size: 16,
                       color: Colors.white,

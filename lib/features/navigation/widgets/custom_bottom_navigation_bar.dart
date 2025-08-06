@@ -39,7 +39,7 @@ class CustomBottomNavigationBar extends ConsumerWidget {
           color: Theme.of(context).colorScheme.outline,
         ),
         elevation: 0,
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        surfaceColor: Theme.of(context).colorScheme.surface,
         items: _buildNavigationItems(),
       ),
     );

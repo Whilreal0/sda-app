@@ -7,7 +7,7 @@ import 'features/splash/pages/splash_screen.dart';
 
 void main() async {
   // Load environment variables
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: '.env');
   
   runApp(
     const ProviderScope(

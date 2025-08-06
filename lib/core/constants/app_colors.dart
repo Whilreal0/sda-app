@@ -20,8 +20,8 @@ class AppColors {
 
   /// Background Color (Very Light Gray)
   /// HEX: #F9FAFB | RGB: 249, 250, 251
-  /// Use for: screen backgrounds
-  static const Color background = Color(0xFFF9FAFB);
+  /// Use for: screen surfaces
+  static const Color surface = Color(0xFFF9FAFB);
 
   /// Surface Color (White)
   /// HEX: #FFFFFF
