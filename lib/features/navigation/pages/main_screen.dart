@@ -40,7 +40,7 @@ class MainScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(
           pageTitles[selectedIndex],
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.textPrimary,
             fontSize: AppConstants.headlineTextSize,
             fontWeight: FontWeight.w600,
@@ -48,9 +48,9 @@ class MainScreen extends ConsumerWidget {
         ),
         backgroundColor: AppColors.surface,
         elevation: 0,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         centerTitle: false,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: AppColors.primary,
           size: 24,
         ),

@@ -20,11 +20,11 @@ class DonationsContent extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: AppColors.secondaryGradient,
               borderRadius: BorderRadius.circular(16),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: AppColors.shadowLight,
                   blurRadius: 10,
-                  offset: const Offset(0, 4),
+                  offset: Offset(0, 4),
                 ),
               ],
             ),
@@ -138,11 +138,11 @@ class DonationsContent extends StatelessWidget {
               color: AppColors.surface,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: AppColors.borderLight),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: AppColors.shadowLight,
                   blurRadius: 8,
-                  offset: const Offset(0, 2),
+                  offset: Offset(0, 2),
                 ),
               ],
             ),
@@ -263,11 +263,11 @@ class DonationsContent extends StatelessWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppColors.borderLight),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -295,11 +295,11 @@ class DonationsContent extends StatelessWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: AppColors.borderLight),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadowLight,
             blurRadius: 6,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -341,7 +341,7 @@ class DonationsContent extends StatelessWidget {
               ],
             ),
           ),
-          Icon(
+          const Icon(
             Icons.arrow_forward_ios,
             color: AppColors.textSecondary,
             size: 16,

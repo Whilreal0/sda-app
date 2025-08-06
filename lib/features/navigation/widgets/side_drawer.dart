@@ -44,7 +44,7 @@ class SideDrawer extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.church,
             size: 48,
             color: AppColors.surface,
@@ -96,7 +96,7 @@ class SideDrawer extends ConsumerWidget {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           height: 1,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 Colors.transparent,
@@ -154,7 +154,7 @@ class SideDrawer extends ConsumerWidget {
         ),
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.textPrimary,
             fontSize: AppConstants.bodyTextSize,
             fontWeight: FontWeight.w500,
@@ -171,7 +171,7 @@ class SideDrawer extends ConsumerWidget {
       context: context,
       applicationName: AppConstants.appName,
       applicationVersion: AppConstants.appVersion,
-      applicationIcon: Icon(
+      applicationIcon: const Icon(
         Icons.church,
         size: 50,
         color: AppColors.primary,
@@ -194,14 +194,14 @@ class SideDrawer extends ConsumerWidget {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.surface,
-        title: Text(
+        title: const Text(
           'Help & Support',
           style: TextStyle(
             color: AppColors.textPrimary,
             fontWeight: FontWeight.bold,
           ),
         ),
-        content: Column(
+        content: const Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -212,17 +212,17 @@ class SideDrawer extends ConsumerWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             _HelpOption(
               icon: Icons.phone,
               text: 'Contact your local church office',
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             _HelpOption(
               icon: Icons.email,
               text: 'Email support: support@sda-app.com',
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             _HelpOption(
               icon: Icons.phone_in_talk,
               text: 'Call: 1-800-SDA-HELP',
@@ -232,7 +232,7 @@ class SideDrawer extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(
+            child: const Text(
               'Close',
               style: TextStyle(
                 color: AppColors.primary,
@@ -251,14 +251,14 @@ class SideDrawer extends ConsumerWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColors.primary.withValues(alpha: 0.05),
-        border: Border(
+        border: const Border(
           top: BorderSide(
             color: AppColors.borderLight,
             width: 1,
           ),
         ),
       ),
-      child: Column(
+      child: const Column(
         children: [
           Text(
             'SDA App',
@@ -268,7 +268,7 @@ class SideDrawer extends ConsumerWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             'Seventh-day Adventist Community',
             style: TextStyle(
@@ -306,7 +306,7 @@ class _HelpOption extends StatelessWidget {
         Expanded(
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               color: AppColors.textSecondary,
               fontSize: 14,
             ),

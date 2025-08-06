@@ -40,17 +40,17 @@ class FacebookLiveContent extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.surface,
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: AppColors.shadowLight,
                     blurRadius: 20,
-                    offset: const Offset(0, 8),
+                    offset: Offset(0, 8),
                   ),
                 ],
               ),
               child: Column(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.live_tv,
                     size: 80,
                     color: AppColors.primary,

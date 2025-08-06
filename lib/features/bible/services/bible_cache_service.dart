@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'bible_api_service.dart';
 
@@ -25,25 +24,6 @@ class BibleCacheService {
       return verse;
     } catch (e) {
       return null;
-    }
-  }
-
-  /// Cache a verse with the given date
-  static Future<void> _cacheVerse(BibleVerse verse, String date) async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-      final verseData = {
-        'reference': verse.reference,
-        'text': verse.text,
-        'translation': verse.translation,
-        'translationName': verse.translationName,
-        'translationNote': verse.translationNote,
-      };
-      
-      await prefs.setString(_dailyVerseKey, json.encode(verseData));
-      await prefs.setString(_lastFetchDateKey, date);
-    } catch (e) {
-      // Handle error silently
     }
   }
 
